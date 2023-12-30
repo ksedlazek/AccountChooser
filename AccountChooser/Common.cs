@@ -184,16 +184,18 @@ namespace Common
         // This method using 'DebuggerExtensions.Preview()' should only be used when debugging/developing, not for release/production trainings
         public static void PeekDataViewInConsole(MLContext mlContext, IDataView dataView, IEstimator<ITransformer> pipeline, int numberOfRows = 4)
         {
-            string msg = string.Format("Peek data in DataView: Showing {0} rows with the columns", numberOfRows.ToString());
-            ConsoleWriteHeader(msg);
-
             //https://github.com/dotnet/machinelearning/blob/main/docs/code/MlNetCookBook.md#how-do-i-look-at-the-intermediate-data
             var transformer = pipeline.Fit(dataView);
             var transformedData = transformer.Transform(dataView);
+            PeekDataViewInConsole(mlContext, transformedData, numberOfRows); 
+        }
 
-            // 'transformedData' is a 'promise' of data, lazy-loading. call Preview
-            //and iterate through the returned collection from preview.
-
+        [Conditional("DEBUG")]
+        // This method using 'DebuggerExtensions.Preview()' should only be used when debugging/developing, not for release/production trainings
+        public static void PeekDataViewInConsole(MLContext mlContext, IDataView transformedData, int numberOfRows = 4)
+        {
+            string msg = string.Format("Peek data in DataView: Showing {0} rows with the columns", numberOfRows.ToString());
+            ConsoleWriteHeader(msg);
             var preViewTransformedData = transformedData.Preview(maxRows: numberOfRows);
 
             foreach (var row in preViewTransformedData.RowView)

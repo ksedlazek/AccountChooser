@@ -15,6 +15,12 @@ public class TransactionData
     [LoadColumn(7)] public string Category { get; set; }
 }
 
+public class TransactionFeatures
+{
+    [VectorType(100)] public float[] DescriptionFeaturized { get; set; }
+    [VectorType(100)] public float[] CategoryFeaturized { get; set; }
+}
+
 public class ModelOutput
 {
     [ColumnName("PredictedLabel")] public string FullName { get; set; }

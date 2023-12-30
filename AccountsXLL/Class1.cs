@@ -25,6 +25,11 @@ namespace AccountsXLL
             return prediction.FullName;
         }
 
+        [ExcelFunction(Description = "Load specific mapping values")]
+        public static string LoadMap(string description, float amount, string category)
+        {
+        }
+
         [ExcelFunction(Description = "Predicts the account name based on the trained model")]
         public static string PredictAccount(string description, float amount, string category)
         {

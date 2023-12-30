@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountChooser", "AccountChooser\AccountChooser.csproj", "{9636D505-4387-4A29-87B8-D44882063518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountChooser", "AccountChooser\AccountChooser.csproj", "{9636D505-4387-4A29-87B8-D44882063518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsXLL", "AccountsXLL\AccountsXLL.csproj", "{92758687-414C-41E7-AD07-E0D9B0DBB140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountsXLL", "AccountsXLL\AccountsXLL.csproj", "{92758687-414C-41E7-AD07-E0D9B0DBB140}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{325FC66F-0349-41B9-9447-5BA1425A4BA8}"
+	ProjectSection(SolutionItems) = preProject
+		Data\gnucash data loader.sql = Data\gnucash data loader.sql
+		Data\Input.csv = Data\Input.csv
+		Data\model.zip = Data\model.zip
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
