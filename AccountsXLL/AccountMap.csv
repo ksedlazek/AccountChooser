@@ -1,0 +1,86 @@
+﻿Type,Category,Description,Account
+Adjustment,Fees & Adjustments,TRAVEL CREDIT $300/YEAR,Expenses:Financial Services:Credit Card Fees
+Fee,Fees & Adjustments,ANNUAL MEMBERSHIP FEE,Expenses:Financial Services:Credit Card Fees
+Payment,,AUTOMATIC PAYMENT - THANK,Assets:Banking:Bank of America:Checking
+Sale,Automotive,CIRCLE BMW,Expenses:Travel:Service
+Sale,Bills & Utilities,AMZ*Hulu,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,Audible,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,Disney Plus,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,NETFLIX,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,NETFLIX.COM,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,Spotify,Expenses:Subscriptions:Streaming
+Sale,Bills & Utilities,USPS PO BOXES ONLINE,Expenses:Subscriptions:Clubs
+Sale,Entertainment,NEWPORT MANSION TICKETS,Expenses:Living:Entertainment
+Sale,Entertainment,Prime Video,Expenses:Living:Entertainment:Rental
+Sale,Food & Drink,BOMBAY SPICE II,Expenses:Living:Dining
+Sale,Food & Drink,ESPOSITOS,Expenses:Living:Dining
+Sale,Food & Drink,JERSEY MIKES,Expenses:Living:Dining
+Sale,Food & Drink,Lucky Star,Expenses:Living:Dining
+Sale,Food & Drink,METUCHEN LIQUOR AND WINE,Expenses:Living:Dining
+Sale,Food & Drink,SQ *DIVI TREE COFFEE,Expenses:Living:Dining
+Sale,Food & Drink,SQ *FRESH KITCHEN,Expenses:Living:Dining
+Sale,Food & Drink,STARBUCKS,Expenses:Living:Dining
+Sale,Food & Drink,THE MOORING,Expenses:Living:Vacation:Dining
+Sale,Food & Drink,TST* B2 Bistro - Point Pl,Expenses:Living:Dining
+Sale,Food & Drink,TST* St. Stephens Green,Expenses:Living:Dining
+Sale,Food & Drink,WATERMANS TAVERN,Expenses:Living:Dining
+Sale,Gas,CITGO FRIENDS CORNER,Expenses:Travel:Fuel
+Sale,Gas,LUKOIL,Expenses:Travel:Fuel
+Sale,Gas,SPEEDWAY,Expenses:Travel:Fuel
+Sale,Groceries,BLACK RIFLE COFFEE,Expenses:Living:Groceries
+Sale,Groceries,MONMOUTH HEALTH FOODS,Expenses:Living:Groceries
+Sale,Groceries,SHOPRITE,Expenses:Living:Groceries
+Sale,Groceries,SQ *HEAVY REEL BREWING,Expenses:Living:Groceries:Alcohol
+Sale,Groceries,SQ *LAST WAVE BREWING,Expenses:Living:Groceries:Alcohol
+Sale,Groceries,STOP,Expenses:Living:Groceries
+Sale,Groceries,SUPER FOODTOWN,Expenses:Living:Groceries
+Sale,Health & Wellness,08381 BRIELLE SPORTS CLUB,Expenses:Subscriptions:Clubs
+Sale,Health & Wellness,ABC*BRIELLE SPORTS CLUB,Expenses:Subscriptions:Clubs
+Sale,Health & Wellness,CVS CarePass,Expenses:Subscriptions:Clubs
+Sale,Health & Wellness,CVS/PHARMACY,Expenses:Living:Household:Personal Care
+Sale,Health & Wellness,CVS/PHARMACY #01240,Expenses:Living:Household:Personal Care
+Sale,Health & Wellness,CVS/PHARMACY #01358,Expenses:Living:Household:Personal Care
+Sale,Health & Wellness,CVS/PHARMACY #02847,Expenses:Living:Household:Personal Care
+Sale,Health & Wellness,CVS/PHARMACY #10091,Expenses:Living:Household:Personal Care
+Sale,Health & Wellness,EMERALD EYES INC,Expenses:Medical:Kurt
+Sale,Health & Wellness,Supercuts,Expenses:Living:Household:Personal Care
+Sale,Home,AT HOME STORE 209,Expenses:Living:Household
+Sale,Home,HOMEDEPOT,Expenses:Home Improvement:Cedar:Repairs
+Sale,Home,IN *SHORE ENVIRONMENTAL,Expenses:Living:Lawn Care:Cedar
+Sale,Home,PUBLIC STORAGE 25586,Expenses:Housing:Moving
+Sale,Home,THE HOME DEPOT,Expenses:Home Improvement:Cedar:Repairs
+Sale,Personal,MAIN STREET CLEANERS,Expenses:Living:Clothing:Cleaners
+Sale,Personal,NAIL HAVEN SPA,Expenses:Living:Household:Personal Care
+Sale,Personal,NAIL CAFE,Expenses:Living:Household:Personal Care
+Sale,Personal,SPRUCE SALON,Expenses:Living:Household:Personal Care
+Sale,Personal,82343 - SUPER CUTS BELMAR,Expenses:Living:Household:Personal Care
+Sale,Personal,SQUAN ANIMAL HOSPITAL,Expenses:Living:Murray
+Sale,Shopping,Amazon.com,Expenses:Living:Shopping
+Sale,Shopping,AMZN Mktp US,Expenses:Living:Shopping
+Sale,Shopping,BOSCOVS 74,Expenses:Living:Clothing
+Sale,Shopping,BRAVE NEW WORLD INC,Expenses:Living:Clothing
+Sale,Shopping,HELLY HANSEN NEWPORT,Expenses:Living:Clothing
+Sale,Shopping,HSN,Expenses:Living:Clothing
+Sale,Shopping,JOSABANK CLOTHIERS,Expenses:Living:Clothing
+Sale,Shopping,Kate Spade,Expenses:Living:Clothing
+Sale,Shopping,KOHL,Expenses:Living:Clothing
+Sale,Shopping,LULULEMON,Expenses:Living:Clothing
+Sale,Shopping,MACYS  OCEAN COUNTY,Expenses:Living:Clothing
+Sale,Shopping,MADEWELL,Expenses:Living:Clothing
+Sale,Shopping,Microsoft*Subscription,Expenses:Subscriptions:Clubs
+Sale,Shopping,MUSEUM SHOP,Expenses:Living:Vacation:Activities
+Sale,Shopping,PP*SHOREPETSER,Expenses:Living:Murray
+Sale,Shopping,Prime Video,Expenses:Living:Entertainment:Rental
+Sale,Shopping,QVC,Expenses:Living:Clothing
+Sale,Shopping,RUELALA,Expenses:Living:Clothing
+Sale,Shopping,SHORE PET S,Expenses:Living:Murray
+Sale,Shopping,SHOPHQ ,Expenses:Living:Clothing
+Sale,Shopping,TARGET,Expenses:Living:Clothing
+Sale,Shopping,WALMART.COM,Expenses:Living:Household
+Sale,Travel,ACADEMY BUS,Expenses:Travel:Commuting
+Sale,Travel,ASBURY PARK PARKMOBILE,Expenses:Travel:Parking
+Sale,Travel,HYDRANGEA HOUSE,Expenses:Living:Vacation:Lodging
+Sale,Travel,NJ EZPASS,Expenses:Travel:EZPass
+Sale,Travel,PARKMOBILE,Expenses:Travel:Parking
+Sale,Travel,UBER   TRIP,Expenses:Travel:Uber
+Sale,Travel,VIATORTRIPADVISOR US,Expenses:Living:Vacation:Activities
