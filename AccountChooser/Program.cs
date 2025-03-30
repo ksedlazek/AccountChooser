@@ -4,8 +4,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        var path = $"C:/Workspace/AccountChooser/Data/model.zip";
-        Trainer.Train(path);
+        var path = $"C:/Workspace/csharp/AccountChooser/Data/model.zip";
+        Trainer.TrainWithoutPreview(path);
         Trainer.Predict(path);
         Common.ConsoleHelper.ConsolePressAnyKey();
     }

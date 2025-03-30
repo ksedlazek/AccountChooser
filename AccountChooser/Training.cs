@@ -14,19 +14,19 @@ public class Trainer
     public const string OVA = "OVAAveragedPerceptronTrainer";
     public const string AVGP = "AveragedPerceptronTrainer";
 
-    public static void Train(string modelPath, string selectedStrategy = Trainer.OVA)
+    public static void Train(string modelPath, string selectedStrategy = Trainer.SDCA)
     {
         var mlContext = new MLContext(seed: 1);
 
         // STEP 1: Common data loading configuration
-        var dataView = mlContext.Data.LoadFromTextFile<TransactionData>("C:/Workspace/AccountChooser/Data/Input.csv", '|', true);
+        var dataView = mlContext.Data.LoadFromTextFile<TransactionData>("C:/Workspace/csharp/AccountChooser/Data/Input.csv", '|', true);
 
         // STEP 2: Common data process configuration with pipeline data transformations
         var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", "FullName")
-            .Append(mlContext.Transforms.Text.NormalizeText("DescriptionNormalized", "Description", Microsoft.ML.Transforms.Text.TextNormalizingEstimator.CaseMode.Upper, keepNumbers: false))
+            .Append(mlContext.Transforms.Text.NormalizeText("DescriptionNormalized", "Description", Microsoft.ML.Transforms.Text.TextNormalizingEstimator.CaseMode.Upper, keepNumbers: true))
             .Append(mlContext.Transforms.Text.FeaturizeText("DescriptionFeaturized", "DescriptionNormalized"))
             .Append(mlContext.Transforms.Categorical.OneHotEncoding("CategoryOneHotEncoded", "Category"))
-            .Append(mlContext.Transforms.NormalizeMinMax("AmountNormalized", "Amount"))
+            .Append(mlContext.Transforms.NormalizeMeanVariance("AmountNormalized", "Amount"))
             .Append(mlContext.Transforms.Concatenate("Features", "DescriptionFeaturized", "CategoryOneHotEncoded", "AmountNormalized"));
 
         // Use in-memory cache for small/medium datasets to lower training time. 
@@ -43,8 +43,7 @@ public class Trainer
         var trainer = CreateTrainer(mlContext, selectedStrategy);
 
         //Set the trainer/algorithm and map label to value (original readable state)
-        var pipeline = dataProcessPipeline.Append(trainer)
-                .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
+        var pipeline = dataProcessPipeline.Append(trainer).Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
         // STEP 4: Cross-Validate with single dataset (since we don't have two datasets, one for training and for evaluate)
         // in order to evaluate and get the model's accuracy metrics
@@ -87,6 +86,37 @@ public class Trainer
         }
     }
 
+    public static void TrainWithoutPreview(string modelPath)
+    {
+        var mlContext = new MLContext(seed: 1);
+
+        Console.WriteLine("=============== STEP 1: load the data ===============");
+        var rawData = mlContext.Data.LoadFromTextFile<TransactionData>("C:/Workspace/csharp/AccountChooser/Data/Input.csv", '|', true);
+        var trainData = mlContext.Data.ShuffleRows(rawData);
+
+        Console.WriteLine("=============== STEP 2: Set up the ML pipeline ===============");
+        var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", "FullName")
+            .Append(mlContext.Transforms.Text.NormalizeText("DescriptionNormalized", "Description", Microsoft.ML.Transforms.Text.TextNormalizingEstimator.CaseMode.Upper, keepNumbers: true))
+            .Append(mlContext.Transforms.Text.FeaturizeText("DescriptionFeaturized", "DescriptionNormalized"))
+            .Append(mlContext.Transforms.Categorical.OneHotEncoding("CategoryOneHotEncoded", "Category"))
+            .Append(mlContext.Transforms.NormalizeMeanVariance("AmountNormalized", "Amount"))
+            .Append(mlContext.Transforms.Concatenate("Features", "DescriptionFeaturized", "CategoryOneHotEncoded", "AmountNormalized"))
+            .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features", maximumNumberOfIterations: 100))
+            .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
+
+        Console.WriteLine("=============== STEP 3: Training the model ===============");
+        var model = pipeline.Fit(trainData);
+
+        Console.WriteLine("=============== STEP 4: Evaluate the model ===============");
+        var predictions = model.Transform(trainData);
+        var metrics = mlContext.MulticlassClassification.Evaluate(predictions, "Label");
+        Console.WriteLine($"MicroAccuracy: {metrics.MicroAccuracy}");
+        Console.WriteLine($"MacroAccuracy: {metrics.MacroAccuracy}");
+
+        Console.WriteLine("=============== STEP 5: Saving the model to a file ===============");
+        mlContext.Model.Save(model, trainData.Schema, modelPath);
+    }
+
     public static void Predict(string modelPath)
     {
         var mlContext = new MLContext(seed: 1);
@@ -101,8 +131,7 @@ public class Trainer
          new TransactionData() { Description = "SHOPHQ", Category = "Shopping", Amount = 12000 },
          new TransactionData() { Description = "Barnes & Noble", Category = "Shopping", Amount = 4437 },
          new TransactionData() { Description = "St. Stephens Pub", Category = "Food & Drink", Amount = 9800 },
-         new TransactionData() { Description = "AMZN*324234", Category = "Shopping", Amount = 1000 }
-    };
+         new TransactionData() { Description = "AMZN*324234", Category = "Shopping", Amount = 1000 } };
 
         foreach (var tx in testData)
         {

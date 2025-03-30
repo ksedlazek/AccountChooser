@@ -99,10 +99,7 @@ namespace Common
             Console.WriteLine($"*************************************************************************************************************");
         }
 
-        public static void PrintMulticlassClassificationFoldsAverageMetrics(
-                                         string algorithmName,
-                                       IReadOnlyList<CrossValidationResult<MulticlassClassificationMetrics>> crossValResults
-                                                                           )
+        public static void PrintMulticlassClassificationFoldsAverageMetrics(string algorithmName, IReadOnlyList<CrossValidationResult<MulticlassClassificationMetrics>> crossValResults)
         {
             var metricsInMultipleFolds = crossValResults.Select(r => r.Metrics);
 
@@ -187,7 +184,7 @@ namespace Common
             //https://github.com/dotnet/machinelearning/blob/main/docs/code/MlNetCookBook.md#how-do-i-look-at-the-intermediate-data
             var transformer = pipeline.Fit(dataView);
             var transformedData = transformer.Transform(dataView);
-            PeekDataViewInConsole(mlContext, transformedData, numberOfRows); 
+            PeekDataViewInConsole(mlContext, transformedData, numberOfRows);
         }
 
         [Conditional("DEBUG")]
@@ -227,7 +224,8 @@ namespace Common
             // print to console the peeked rows
 
             int currentRow = 0;
-            someColumnData.ForEach(row => {
+            someColumnData.ForEach(row =>
+            {
                 currentRow++;
                 String concatColumn = String.Empty;
                 foreach (float f in row)
